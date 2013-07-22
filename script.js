@@ -26,7 +26,7 @@ var photoApp = {
         appSettings.pictureSource = navigator.camera.PictureSourceType;
         appSettings.destinationType = navigator.camera.DestinationType;
 
-        console.log(appSettings.pictureSource);
+        console.log(navigator.camera.DestinationType);
     },
     onPhotoDataSuccess: function(imageData) {
         // Uncomment to view the base64-encoded image data
