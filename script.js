@@ -1,7 +1,7 @@
 var photoApp = {
 
     settings : {
-        pictureSource : "hiya",
+        pictureSource : "",
         destinationType : ""
     },
     // Application Constructor
@@ -21,12 +21,12 @@ var photoApp = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        var appSettings = this.settings;
+        var appSettings = photoApp.settings;
         console.log (appSettings);
         appSettings.pictureSource = navigator.camera.PictureSourceType;
         appSettings.destinationType = navigator.camera.DestinationType;
 
-        console.log(appSettings.destinationType);
+        console.log(appSettings.pictureSource);
     },
     onPhotoDataSuccess: function(imageData) {
         // Uncomment to view the base64-encoded image data
@@ -76,7 +76,7 @@ var photoApp = {
     getPhoto: function(source) {
         // Retrieve image file location from specified source
         navigator.camera.getPicture(photoApp.onPhotoURISuccess, photoApp.onFail, { quality: 50,
-            destinationType: this.settings.destinationType.FILE_URI,
+            destinationType: photoApp.settings.destinationType.FILE_URI,
             sourceType: source });
     },
     // Called if something bad happens.
