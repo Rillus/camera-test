@@ -18,13 +18,7 @@
 
   </head>
   <body>
-    <button onclick="capturePhoto();">Capture Photo</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
-
-    <div data-role="page" id="page1">
+    <div data-role="page" id="index">
       <div data-theme="a" data-role="header">
           <h3 id="masthead">
               Sect.tv
@@ -34,20 +28,33 @@
           <div data-role="navbar" data-iconpos="top">
               <ul>
                   <li>
-                      <a onclick="capturePhoto();" data-transition="fade" data-theme="" data-icon="">
+                      <a href="#image" onclick="capturePhoto();" data-transition="fade" data-theme="" data-icon="">
                           Take Photo
                       </a>
                   </li>
                   <li>
-                      <a onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" data-transition="fade" data-theme="" data-icon="">
+                      <a href="#image" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" data-transition="fade" data-theme="" data-icon="">
                           Select Image from your albums
                       </a>
                   </li>
               </ul>
           </div>
-           <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-            <img style="display:none;" id="largeImage" src="" />
+          <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+          <img style="display:none;" id="largeImage" src="" />
       </div>
     </div>
+    
+    <div data-role="page" id="image">
+      <div data-theme="a" data-role="header">
+          <h3 id="masthead">
+              Sect.tv
+          </h3>
+      </div>
+      <div data-role="content">
+          <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+          <img style="display:none;" id="largeImage" src="" />
+      </div>
+    </div>
+
   </body>
 </html>
