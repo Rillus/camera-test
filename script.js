@@ -1,7 +1,9 @@
-var pictureSource,   // picture source
-    destinationType; // sets the format of returned value
-
 var photoApp = {
+
+    settings : {
+        pictureSource : "hiya",
+        destinationType : ""
+    },
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -11,6 +13,7 @@ var photoApp = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+        var photoApp = this;
         document.addEventListener('deviceready', photoApp.onDeviceReady, false);
     },
     // deviceready Event Handler
@@ -18,10 +21,12 @@ var photoApp = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        window.pictureSource = navigator.camera.PictureSourceType;
-        window.destinationType = navigator.camera.DestinationType;
+        var appSettings = this.settings;
+        console.log (appSettings);
+        appSettings.pictureSource = navigator.camera.PictureSourceType;
+        appSettings.destinationType = navigator.camera.DestinationType;
 
-        console.log(window.destinationType);
+        console.log(appSettings.destinationType);
     },
     onPhotoDataSuccess: function(imageData) {
         // Uncomment to view the base64-encoded image data
@@ -64,14 +69,14 @@ var photoApp = {
     capturePhoto: function () {
         // Take picture using device camera and retrieve image as base64-encoded string
         navigator.camera.getPicture(photoApp.onPhotoDataSuccess, photoApp.onFail, { quality: 50,
-            destinationType: window.destinationType.DATA_URL });
+            destinationType: this.settings.destinationType.DATA_URL });
     },
     // A button will call this function
     //
     getPhoto: function(source) {
         // Retrieve image file location from specified source
         navigator.camera.getPicture(photoApp.onPhotoURISuccess, photoApp.onFail, { quality: 50,
-            destinationType: window.destinationType.FILE_URI,
+            destinationType: this.settings.destinationType.FILE_URI,
             sourceType: source });
     },
     // Called if something bad happens.
