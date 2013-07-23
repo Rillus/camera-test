@@ -1,7 +1,7 @@
 var post = {
 
     settings : {
-        baseUrl : "http://localhost/sect.tv/index.php/",
+        baseUrl : "http://172.19.147.50/sect.tv/index.php/",
         destinationType : ""
     },
     // Application Constructor
