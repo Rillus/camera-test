@@ -5,7 +5,7 @@ var photoApp = {
         destinationType : ""
     },
     // Application Constructor
-    initialize: function() {
+    init: function() {
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -15,6 +15,15 @@ var photoApp = {
     bindEvents: function() {
         var photoApp = this;
         document.addEventListener('deviceready', photoApp.onDeviceReady, false);
+        $(document).on('click', '#getPhoto', function(event) {
+            photoApp.getPhoto(photoApp.settings.pictureSource.SAVEDPHOTOALBUM);
+        });
+        $(document).on('click', '#capturePhoto', function(event) {
+            photoApp.capturePhoto();
+        });
+        $(document).on('click', '#uploadPhoto', function(event) {
+            photoApp.uploadPhoto();
+        });
     },
     // deviceready Event Handler
 
@@ -25,17 +34,6 @@ var photoApp = {
         console.log (appSettings);
         appSettings.pictureSource = navigator.camera.PictureSourceType;
         appSettings.destinationType = navigator.camera.DestinationType;
-
-        $(document).on('click', '#getPhoto', function(event) {
-            photoApp.getPhoto(photoApp.settings.pictureSource.SAVEDPHOTOALBUM);
-        }
-        $(document).on('click', '#capturePhoto', function(event) {
-            photoApp.capturePhoto();
-        }
-        $(document).on('click', '#uploadPhoto', function(event) {
-            photoApp.uploadPhoto();
-        }
-
         console.log(navigator.camera.DestinationType);
     },
     onPhotoDataSuccess: function(imageData) {
@@ -116,6 +114,7 @@ var photoApp = {
         alert("An error has occurred: Code = " + error.code);
         console.log("upload error source " + error.source);
         console.log("upload error target " + error.target);
-    },
+    }
 };
-photoApp.initialize();
+photoApp.init();
+console.log(photoApp);
