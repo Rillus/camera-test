@@ -25,10 +25,9 @@ var post = {
             validateAll();
 
             if ($('.alert').length == 0){
-                console.log('user clicky', $(this));
-
                 //send a post request to the web-service
                 var formAction = $(this).data('action');
+                console.log(formAction);
                 post.postData(sett.baseUrl+formAction, $(this).serialize());
             }
         }, event);
