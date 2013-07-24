@@ -26,6 +26,16 @@ var photoApp = {
         appSettings.pictureSource = navigator.camera.PictureSourceType;
         appSettings.destinationType = navigator.camera.DestinationType;
 
+        $(document).on('click', '#getPhoto', function(event) {
+            photoApp.getPhoto(photoApp.settings.pictureSource.SAVEDPHOTOALBUM);
+        }
+        $(document).on('click', '#capturePhoto', function(event) {
+            photoApp.capturePhoto();
+        }
+        $(document).on('click', '#uploadPhoto', function(event) {
+            photoApp.uploadPhoto();
+        }
+
         console.log(navigator.camera.DestinationType);
     },
     onPhotoDataSuccess: function(imageData) {
