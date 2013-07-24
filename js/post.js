@@ -68,6 +68,18 @@ var post = {
         if (message != ""){
             $('.errorHolder').html(message);
         }
+    },
+    checkLogin: function(){
+        var sett = this.settings
+            data = "";
+        $.post(sett.baseUrl+'post/checklogin', data, function (response) {
+            response = $.parseJSON(response);
+            console.log(response);
+            //check if the authorization was successful or not
+            if (response.status == 'success') {
+                $.mobile.changePage('#share', "slide");
+            }
+        });
     }
 };
 post.init();
