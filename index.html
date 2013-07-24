@@ -17,12 +17,13 @@
             </h3>
         </div>
         <div data-role="content">
-            <form method="post" id="login_form">
+            <p class="errorHolder error"><p>
+            <form data-action="post/login" method="post" id="login_form" data-ajax="false">
                 <label for="loginEmail">Email:</label>
-                <input type="text" name="email" id="loginEmail">
+                <input type="text" name="email" id="loginEmail" data-type="email" data-required="true">
                 <label for="loginPassword">Password:</label>
-                <input type="password" name="password" id="loginPassword">
-                <input type="submit" value="Login" data-theme="e">
+                <input type="password" name="password" id="loginPassword" data-required="true">
+                <input class="submit" type="submit" value="Login" data-theme="b">
             </form>
         </div>
     </div>
@@ -86,7 +87,8 @@
 
     <!-- Extra Codiqa features -->
     <script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
-    <script src="phoneapp.js"></script>
-    <script src="post.js"></script>
+    <script src="js/phoneapp.js"></script>
+    <script src="js/post.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 </html>
