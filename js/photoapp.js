@@ -41,18 +41,17 @@ var photoApp = {
         // console.log(imageData);
 
         // Get image handle
-         var smallImage = document.getElementById('smallImage'),
-            photo = smallImage.getContext('2d'),
-            canvasBg = new Image();
+        var smallImage = document.getElementById('smallImage'),
+            imageCanvas = document.getElementById('imageCanvas'),
+            photo = imageCanvas.getContext('2d');
 
         // Unhide image elements
         smallImage.style.display = 'block';
 
         // Show the captured photo
-        canvasBg.src = "data:image/jpeg;base64," + imageURI;
-        canvasBg.onload = function(){
-            photo.drawImage(canvasBg, 0, 0); 
-        }
+        smallImage.src = "data:image/jpeg;base64," + imageURI;
+        
+        photo.drawImage(smallImage, 0, 0); 
     },
     
     // Called when a photo is successfully retrieved
@@ -62,17 +61,15 @@ var photoApp = {
 
         // Get image handle
         var smallImage = document.getElementById('smallImage'),
-            photo = smallImage.getContext('2d'),
-            canvasBg = new Image();
+            imageCanvas = document.getElementById('imageCanvas'),
+            photo = imageCanvas.getContext('2d');
 
         // Unhide image elements
         smallImage.style.display = 'block';
 
-        // Show the captured photo
-        canvasBg.src = "data:image/jpeg;base64," + imageURI;
-        canvasBg.onload = function(){
-            photo.drawImage(canvasBg, 0, 0); 
-        }
+        smallImage.src = imageURI;
+
+        photo.drawImage(smallImage, 0, 0); 
     },
     
     // A button will call this function
