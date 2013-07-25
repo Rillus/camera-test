@@ -58,13 +58,18 @@ var photoApp = {
 
         // Get image handle
         var smallImage = document.getElementById('smallImage');
+        console.log(smallImage, 'big dream');
+        var photo = smallImage.getContext('2d'),
+            canvasBg = new Image();
 
         // Unhide image elements
         smallImage.style.display = 'block';
 
         // Show the captured photo
-        // The inline CSS rules are used to resize the image
-        smallImage.src = imageURI;
+        canvasBg.src = "data:image/jpeg;base64," + imageURI;
+        canvasBg.onload = function(){
+            photo.drawImage(canvasBg, 0, 0); 
+        }
     },
     
     // A button will call this function
@@ -87,34 +92,18 @@ var photoApp = {
         alert('Failed because: ' + message);
     },
 
-    uploadPhoto: function (imageURI) {
-        var options = new FileUploadOptions(),
-            photoApp = this;
-        options.fileKey="file";
-        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-        options.mimeType="image/jpeg";
+    uploadPhoto: function(){
+        var smallImage = document.getElementById('smallImage');
 
-        var params = {};
-        params.value1 = "test";
-        params.value2 = "param";
-
-        options.params = params;
-
-        var ft = new FileTransfer();
-        ft.upload(imageURI, encodeURI(post.settings.baseUrl+'post/image'), photoApp.win, photoApp.fail, options);
-    },
-
-    win: function(r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-    },
-
-    fail: function(error) {
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
+        xhr = new XMLHttpRequest();
+        xhr.open('POST', post.settings.baseUrl+'post/photo');
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function(response){
+            if (this.status == 200 && this.readyState == 4){
+                console.log(response);
+            };
+        };
+        xhr.send('photo=' + encodeURIComponent(smallImage.toDataURL()));
     }
 };
 photoApp.init();
-console.log(photoApp);
