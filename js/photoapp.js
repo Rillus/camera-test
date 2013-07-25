@@ -113,11 +113,11 @@ var photoApp = {
                 if (smallImage.height > smallImage.width){
                     var ratio = 800/smallImage.width;
                     imageX = 800;
-                    imageY = smallImage.height * ratio;
+                    imageY = 800 //smallImage.height * ratio;
                 } else {
                     var ratio = 800/smallImage.height;
                     imageX = 800;
-                    imageY = smallImage.width * ratio;
+                    imageY = 800 //smallImage.width * ratio;
                 }
             }
             photo.drawImage(smallImage, 0, 0, imageX, imageY);
