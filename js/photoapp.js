@@ -39,39 +39,29 @@ var photoApp = {
     },
     onPhotoDataSuccess: function(imageData) {
         // Uncomment to view the base64-encoded image data
-        // console.log(imageData);
+        var imageData = "data:image/jpeg;base64," + imageData;;
 
-        // Get image handle
-        var smallImage = document.getElementById('smallImage'),
-            imageCanvas = document.getElementById('imageCanvas'),
-            photo = imageCanvas.getContext('2d');
-
-        // Unhide image elements
-        smallImage.style.display = 'block';
-        imageCanvas.style.display = 'block';
-
-        // Show the captured photo
-        smallImage.src = "data:image/jpeg;base64," + imageData;
-        smallImage.onload = function(){
-            photo.drawImage(smallImage, 0, 0, 800, 800);
-        }
+        this.photoSuccess(imageData);
     },
     
     // Called when a photo is successfully retrieved
     onPhotoURISuccess: function(imageURI) {
         // Uncomment to view the image file URI
-        // console.log(imageURI);
+        var imageData = imageURI;
 
-        // Get image handle
+        this.photoSuccess(imageData);
+    },
+
+    photoSuccess: function(imageData){
+         // Get image handle
         var smallImage = document.getElementById('smallImage'),
             imageCanvas = document.getElementById('imageCanvas'),
             photo = imageCanvas.getContext('2d');
 
         // Unhide image elements
-        smallImage.style.display = 'block';
         imageCanvas.style.display = 'block';
 
-        smallImage.src = imageURI;
+        smallImage.src = imageData;
 
         smallImage.onload = function(){
             photo.drawImage(smallImage, 0, 0, 800, 800);
