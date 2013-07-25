@@ -41,14 +41,18 @@ var photoApp = {
         // console.log(imageData);
 
         // Get image handle
-        var smallImage = document.getElementById('smallImage');
+         var smallImage = document.getElementById('smallImage'),
+            photo = smallImage.getContext('2d'),
+            canvasBg = new Image();
 
         // Unhide image elements
         smallImage.style.display = 'block';
 
         // Show the captured photo
-        // The inline CSS rules are used to resize the image
-        smallImage.src = "data:image/jpeg;base64," + imageData;
+        canvasBg.src = "data:image/jpeg;base64," + imageURI;
+        canvasBg.onload = function(){
+            photo.drawImage(canvasBg, 0, 0); 
+        }
     },
     
     // Called when a photo is successfully retrieved
@@ -57,9 +61,8 @@ var photoApp = {
         // console.log(imageURI);
 
         // Get image handle
-        var smallImage = document.getElementById('smallImage');
-        console.log(smallImage, 'big dream');
-        var photo = smallImage.getContext('2d'),
+        var smallImage = document.getElementById('smallImage'),
+            photo = smallImage.getContext('2d'),
             canvasBg = new Image();
 
         // Unhide image elements
