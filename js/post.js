@@ -1,7 +1,7 @@
 var post = {
 
     settings : {
-        baseUrl : "http://172.19.147.50/sect.tv/index.php/",
+        baseUrl : "http://sect.tv/index.php/",
         username : "",
         userId : "",
         errorMsg : ""
