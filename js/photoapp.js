@@ -54,30 +54,30 @@ var photoApp = {
         smallImage.src = "data:image/jpeg;base64," + imageData;
 
         smallImage.onload = function(){
-            if((smallImage.height < 800) && (smallImage.width < 800)){
-                console.log(imageCanvas.width, imageCanvas.height);
-                if (smallImage.height > smallImage.width){
-                    imageCanvasjQ.attr('width', smallImage.width).width(smallImage.width);
-                    imageCanvasjQ.attr('height', smallImage.width).height(smallImage.width);
-                } else {
-                    imageCanvasjQ.attr('width', smallImage.height).width(smallImage.height);
-                    imageCanvasjQ.attr('height', smallImage.height).height(smallImage.height);
-                }
-                //console.log(imageCanvas.width, imageCanvas.height);
-                imageX = imageCanvas.width;
-                imageY = imageCanvas.height;
-            } else {
-                if (smallImage.height > smallImage.width){
-                    var ratio = 800/smallImage.width;
-                    imageX = 800;
-                    imageY = 800 //smallImage.height * ratio;
-                } else {
-                    var ratio = 800/smallImage.height;
-                    imageX = 800;
-                    imageY = 800 //smallImage.width * ratio;
-                }
-            }
-            photo.drawImage(smallImage, 0, 0, imageX, imageY);
+            // if((smallImage.height < 800) && (smallImage.width < 800)){
+            //     console.log(imageCanvas.width, imageCanvas.height);
+            //     if (smallImage.height > smallImage.width){
+            //         imageCanvasjQ.attr('width', smallImage.width).width(smallImage.width);
+            //         imageCanvasjQ.attr('height', smallImage.width).height(smallImage.width);
+            //     } else {
+            //         imageCanvasjQ.attr('width', smallImage.height).width(smallImage.height);
+            //         imageCanvasjQ.attr('height', smallImage.height).height(smallImage.height);
+            //     }
+            //     //console.log(imageCanvas.width, imageCanvas.height);
+            //     imageX = imageCanvas.width;
+            //     imageY = imageCanvas.height;
+            // } else {
+            //     if (smallImage.height > smallImage.width){
+            //         var ratio = 800/smallImage.width;
+            //         imageX = 800;
+            //         imageY = 800 //smallImage.height * ratio;
+            //     } else {
+            //         var ratio = 800/smallImage.height;
+            //         imageX = 800;
+            //         imageY = 800 //smallImage.width * ratio;
+            //     }
+            // }
+            photo.drawImage(smallImage, 0, 0, 800, 800);
         }
     },
     
@@ -101,30 +101,30 @@ var photoApp = {
             var imageX,
                 imageY;
 
-            if((smallImage.height < 800) && (smallImage.width < 800)){
-                console.log(imageCanvas.width, imageCanvas.height);
-                if (smallImage.height > smallImage.width){
-                    imageCanvasjQ.attr('width', smallImage.width).width(smallImage.width);
-                    imageCanvasjQ.attr('height', smallImage.width).height(smallImage.width);
-                } else {
-                    imageCanvasjQ.attr('width', smallImage.height).width(smallImage.height);
-                    imageCanvasjQ.attr('height', smallImage.height).height(smallImage.height);
-                }
-                //console.log(imageCanvas.width, imageCanvas.height);
-                imageX = imageCanvas.width;
-                imageY = imageCanvas.height;
-            } else {
-                if (smallImage.height > smallImage.width){
-                    var ratio = 800/smallImage.width;
-                    imageX = 800;
-                    imageY = 800 //smallImage.height * ratio;
-                } else {
-                    var ratio = 800/smallImage.height;
-                    imageX = 800;
-                    imageY = 800 //smallImage.width * ratio;
-                }
-            }
-            photo.drawImage(smallImage, 0, 0, imageX, imageY);
+            // if((smallImage.height < 800) && (smallImage.width < 800)){
+            //     console.log(imageCanvas.width, imageCanvas.height);
+            //     if (smallImage.height > smallImage.width){
+            //         imageCanvasjQ.attr('width', smallImage.width).width(smallImage.width);
+            //         imageCanvasjQ.attr('height', smallImage.width).height(smallImage.width);
+            //     } else {
+            //         imageCanvasjQ.attr('width', smallImage.height).width(smallImage.height);
+            //         imageCanvasjQ.attr('height', smallImage.height).height(smallImage.height);
+            //     }
+            //     //console.log(imageCanvas.width, imageCanvas.height);
+            //     imageX = imageCanvas.width;
+            //     imageY = imageCanvas.height;
+            // } else {
+            //     if (smallImage.height > smallImage.width){
+            //         var ratio = 800/smallImage.width;
+            //         imageX = 800;
+            //         imageY = 800 //smallImage.height * ratio;
+            //     } else {
+            //         var ratio = 800/smallImage.height;
+            //         imageX = 800;
+            //         imageY = 800 //smallImage.width * ratio;
+            //     }
+            // }
+            photo.drawImage(smallImage, 0, 0, 800, 800);
         }
     },
     
