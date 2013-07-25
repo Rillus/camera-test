@@ -77,7 +77,7 @@ var photoApp = {
                     imageY = 800 //smallImage.width * ratio;
                 }
             }
-            photo.drawImage(smallImage, 0, 0, imageCanvas.width, imageCanvas.height);
+            photo.drawImage(smallImage, 0, 0, imageX, imageY);
         }
     },
     
