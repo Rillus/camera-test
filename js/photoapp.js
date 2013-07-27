@@ -117,9 +117,12 @@ var photoApp = {
     // A button will call this function
     getPhoto: function(source) {
         // Retrieve image file location from specified source
-        navigator.camera.getPicture(photoApp.onPhotoURISuccess, photoApp.onFail, { quality: 50,
+        navigator.camera.getPicture(photoApp.onPhotoURISuccess, photoApp.onFail, { 
+			quality: 50,
             destinationType: photoApp.settings.destinationType.FILE_URI,
-            sourceType: source });
+            sourceType: source,
+			correctOrientation: true
+		});
     },
     
     // Called if something bad happens.
